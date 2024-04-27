@@ -1,4 +1,6 @@
 import React from 'react';
+import Navbar from '@/components/Navigation/Navbar';
+import Footer from '@/components/Navigation/Footer';
 import '@/assets/styles/globals.css';
 
 // for SEO
@@ -12,7 +14,9 @@ const MainLayout = ({ children }) => {
     return (
         <html lang='en'>
             <body>
-                <div>{children}</div>
+                <Navbar />
+                <main>{children}</main>
+                <Footer />
             </body> 
         </html>
     )
