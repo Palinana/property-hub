@@ -5,13 +5,13 @@ import InfoBoxes from '@/components/Homepage/InfoBoxes';
 import HomeProperties from '@/components/Homepage/HomeProperties';
 
 const HomePage = () => {
-  return (
-    <>
-        <Hero />
-        <InfoBoxes />
-        <HomeProperties />
-    </>
-  )
+    return (
+        <>
+              <Hero />
+              <InfoBoxes />
+              <HomeProperties />
+        </>
+    )
 }
 
 export default HomePage
