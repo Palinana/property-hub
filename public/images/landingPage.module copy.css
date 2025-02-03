@@ -1,0 +1,207 @@
+#welcomeText {
+    font-size: 3rem !important;
+}
+
+#welcomeSubText {
+    font-size: 1.3rem;
+}
+
+#card {
+    width: 95%;
+    height: 433px;
+    background-color: white;
+    position: relative;
+}
+
+#cardDark {
+    width: 95%;
+    height: 433px;
+    background-color: #252526;
+    position: relative;;
+}
+
+#dummyCardButton {
+    position: absolute;
+    left: 89%;
+    top: 7%;
+    transform: translate(-50%, -50%);
+    background: #dcff7f;
+    padding: 30px;
+    border-radius: 50px;
+    width: 200px;
+    height: 200px;
+    border-radius: 50%;
+    font-size: 30px;
+    color: black;
+    text-align: center;
+    border: none;
+}
+
+#dummyCardButtonText {
+    display: inline-block;
+    transform: rotate(15deg);
+}
+
+#dummyCardTextQuestion {
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    -webkit-transform: translate(-50%, -50%);
+    transform: translate(-50%, -50%);
+}
+
+#heroSection {
+    padding: 120px 0;
+    background-image: url("../assets/images/back.png");
+    background-size: cover;
+}
+
+#uniqueSectionTitle{
+    padding: 45px 25px;
+    margin: 90px 15px 0;
+}
+
+#uniqueSection {
+    border: 1px solid #6996bf;
+    border-radius: 5px;
+    padding: 45px 25px;
+    margin: 0px 15px 140px;
+}
+
+#footerSection {
+    background-color: black;
+    padding: 45px 25px;
+}
+
+#footerName {
+    font-size: 30px;
+}
+
+#footerIconContainer {
+    margin-left: 10px;
+}
+
+#footerList {
+    list-style-type: none;
+}
+
+#footerListMain {
+    color: #8c8888;
+    font-size: 18px;
+    font-weight: 500;
+    margin-bottom: 10px;
+}
+
+#footerListItem > a {
+    text-decoration: none;
+    color: white;
+} 
+
+#footerListItem:hover {
+    color: #8c8888;
+}
+
+#footerIcons {
+    margin-left: 9px;
+}
+
+#footerIconFirst {
+    margin: 0 4px 0 0;
+    color: #8c8888 !important;
+}
+
+#footerIcon {
+    margin: 0 8px;
+    color: #8c8888 !important;
+}
+
+#footerIconFirst:hover, 
+#footerIcon:hover {
+    color: white !important;
+}
+
+
+
+
+@media (min-width: 1201px) and (max-width: 1399px) { 
+    #dummyCardButton {
+        left: 86%;
+    }
+}
+
+@media (min-width: 992px) and (max-width: 1200px) { 
+    #dummyCardButton {
+        left: 83%;
+    }
+}
+
+@media (max-width: 991px) { 
+    #heroSection {
+        background-image: url("../assets/images/back-vertical.png") !important;
+        background-size: cover;
+    }
+
+    #heroSectionText {
+        margin-bottom: 40px;
+    }
+
+    #dummyCardButton {
+        left: 90%;
+    }
+
+    #welcomeText {
+        font-size: 2.5rem !important;
+    }
+
+    #welcomeSubText {
+        font-size: 1.1rem;
+    }
+
+    #uniqueSectionTitle {
+        margin: 40px 15px 0;
+    }
+
+    #footerColLogo {
+        padding-bottom: 30px;
+    }
+
+    #footerCol {
+        justify-content: flex-start !important;
+    }
+
+    #footerCol > ul{
+        padding: 0px;
+    }
+}
+
+@media (min-width: 768px) and (max-width: 991.98px) {
+    #dummyCardButton {
+        left: 89%;
+    }
+
+    #footerIconFirst {
+        margin: 0 5px 0 0;
+    }
+
+    #footerIcon {
+        margin: 0 8px;
+    }
+}
+
+@media (max-width: 768px) {
+    #dummyCardButton {
+        left: 88%;
+        top: 11%;
+    }
+
+    #footerCol {
+        justify-content: center !important;
+    }
+}
+
+@media (max-width: 575.98px) {
+    #dummyCardButton {
+        left: 79%;
+        top: 15%;
+    }
+}
