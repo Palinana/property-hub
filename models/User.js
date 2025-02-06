@@ -1,6 +1,6 @@
 import { Schema, model, models } from 'mongoose';
 
-const UserSchema = new Schema (
+const UserSchema = new Schema(
     {
         email: {
             type: String,
@@ -14,14 +14,18 @@ const UserSchema = new Schema (
         image: {
             type: String,
         },
-        bookmarks: [ // properties ids
-            {
-                type: Schema.Types.ObjectId,
-                ref: 'Property' // model name
-            }
-        ]
+        bookmarks: [
+        {
+            type: Schema.Types.ObjectId,
+            ref: 'Property',
+        },
+        ],
     },
-    { // created and updated date
+    {
         timestamps: true,
     }
-)
+);
+
+const User = models.User || model('User', UserSchema);
+
+export default User;
