@@ -5,7 +5,7 @@ import Link from 'next/link';
 import { useSession } from 'next-auth/react';
 import profileDefault from '@/assets/images/profile.png';
 import Spinner from '@/components/Elements/Spinner';
-// import { toast } from 'react-toastify';
+import { toast } from 'react-toastify';
 
 const ProfilePage = () => {
     const { data: session } = useSession();
@@ -43,11 +43,41 @@ const ProfilePage = () => {
         }
     }, [session]);
 
+    const handleDeleteProperty = async (propertyId) => {
+        const confirmed = window.confirm(
+            'Are you sure you want to delete this property?'
+        );
+
+        if (!confirmed) return;
+
+        try {
+            const res = await fetch(`/api/properties/${propertyId}`, {
+                method: 'DELETE',
+            });
+
+            if (res.status === 200) {
+                // Remove the property from state
+                const updatedProperties = properties.filter(
+                    (property) => property._id !== propertyId
+                );
+
+                setProperties(updatedProperties);
+                toast.success('Property Deleted');
+            }
+            else {
+                toast.error('Failed to delete property');
+            }
+        } catch (error) {
+            console.log(error);
+            toast.error('Failed to delete property');
+        }
+    };
+
     return (
         <section className='bg-blue-50'>
             <div className='container m-auto py-24'>
                 <div className='bg-white px-6 py-8 mb-4 shadow-md rounded-md border m-4 md:m-0'>
-                    <h1 className='text-3xl font-bold mb-4'>Your Profile</h1>
+                    <h1 className='text-3xl font-bold mb-4 text-center md:text-left'>Your Profile</h1>
                     <div className='flex flex-col md:flex-row'>
                         <div className='md:w-1/4 mx-20 mt-10'>
                             <div className='mb-4'>
@@ -68,7 +98,7 @@ const ProfilePage = () => {
                         </div>
             
                         <div className='md:w-3/4 md:pl-4'>
-                            <h2 className='text-xl font-semibold mb-4'>Your Listings</h2>
+                            <h2 className='text-xl font-semibold mb-4 text-center md:text-left'>Your Listings</h2>
                             {!loading && properties.length === 0 && (
                                 <p>You have no property listings</p>
                             )}

@@ -1,8 +1,11 @@
 import React from 'react';
+import { ToastContainer } from 'react-toastify';
+
 import Navbar from '@/components/Navigation/Navbar';
 import Footer from '@/components/Navigation/Footer';
 import AuthProvider from '../components/Auth/AuthProvider';
 import '@/assets/styles/globals.css';
+import 'react-toastify/dist/ReactToastify.css';
 
 // for SEO
 export const metadata = {
@@ -19,6 +22,7 @@ const MainLayout = ({ children }) => {
                     <Navbar />
                     <main>{children}</main>
                     <Footer />
+                    <ToastContainer />
                 </body> 
             </html>
         </AuthProvider>
