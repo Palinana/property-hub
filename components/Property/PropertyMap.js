@@ -3,7 +3,7 @@ import { useEffect, useState } from 'react';
 import 'mapbox-gl/dist/mapbox-gl.css';
 import Map, { Marker}  from 'react-map-gl/mapbox';
 import { setDefaults, fromAddress } from 'react-geocode';
-// import Spinner from './Spinner';
+import Spinner from '../Elements/Spinner';
 import Image from 'next/image';
 import pin from '@/assets/images/pin.svg';
 
@@ -63,7 +63,7 @@ const PropertyMap = ({ property }) => {
         fetchCoords();
     }, []);
 
-    // if (loading) return <Spinner loading={loading} />;
+    if (loading) return <Spinner loading={loading} />;
 
     // Handle case where geocoding failed
     if (geocodeError) {
