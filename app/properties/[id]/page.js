@@ -7,6 +7,9 @@ import { fetchProperty } from '@/utils/requests';
 import PropertyHeaderImage from '@/components/Property/PropertyHeaderImage';
 import PropertyDetails from '../../../components/Property/PropertyDetails';
 import PropertyImages from '@/components/Property/PropertyImages';
+import BookmarkButton from '@/components/Bookmark/BookmarkButton';
+import ShareButtons from '@/components/Bookmark/ShareButtons';
+import PropertyContactForm from '@/components/Property/PropertyContactForm';
 import Spinner from '../../../components/Elements/Spinner';
 
 import { FaArrowLeft } from 'react-icons/fa';
@@ -74,7 +77,9 @@ const PropertyPage = () => {
                                 <PropertyDetails property={property} />
 
                                 <aside className='space-y-4'>
-
+                                    <BookmarkButton property={property} />
+                                    <ShareButtons property={property} />
+                                    <PropertyContactForm property={property} />
                                 </aside>
                             </div>
                         </div>
