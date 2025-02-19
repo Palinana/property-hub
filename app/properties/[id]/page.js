@@ -14,8 +14,6 @@ import Spinner from '../../../components/Elements/Spinner';
 
 import { FaArrowLeft } from 'react-icons/fa';
 
-// Client component
-
 const PropertyPage = () => {
       const { id } = useParams();
       const [property, setProperty] = useState(null);
