@@ -149,7 +149,7 @@ const Navbar = () => {
                                         />
                                     </svg>
                                 </button>
-
+                                {/* <!-- Unread Messages Count --> */}
                                 <UnreadMessageCount session={session} />
                             </Link>
                             {/* <!-- Profile dropdown button --> */}

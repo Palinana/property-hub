@@ -1,10 +1,13 @@
 'use client';
 import { useState, useEffect } from 'react';
+import { useGlobalContext } from '../../context/GlobalContext';
 import { toast } from 'react-toastify';
 
 const Message = ({ message }) => {
     const [isRead, setIsRead] = useState(message.read);
     const [isDeleted, setIsDeleted] = useState(false);
+
+    const { setUnreadCount } = useGlobalContext();
 
     const handleReadClick = async () => {
         try {
@@ -16,6 +19,8 @@ const Message = ({ message }) => {
                 // from the message
                 const { read } = await res.json();
                 setIsRead(read);
+                //update global counter
+                setUnreadCount((prevCount) => (read ? prevCount - 1 : prevCount + 1));
 
                 if (read) {
                     toast.success('Marked as read');
@@ -37,6 +42,7 @@ const Message = ({ message }) => {
 
             if (res.status === 200) {
                 setIsDeleted(true);
+                setUnreadCount((prevCount) => prevCount - 1);
                 toast.success('Message Deleted');
             }
         } catch (error) {

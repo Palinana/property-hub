@@ -7,11 +7,11 @@ import HomeProperties from '@/components/Homepage/HomeProperties';
 const HomePage = () => {
     return (
         <>
-              <Hero />
-              <InfoBoxes />
-              <HomeProperties />
+            <Hero />
+            <InfoBoxes />
+            <HomeProperties />
         </>
     )
 }
 
-export default HomePage
+export default HomePage;
