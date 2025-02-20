@@ -3,10 +3,10 @@ import PropertyCard from '@/components/Property/PropertyCard';
 import { fetchProperties } from '@/utils/requests';
 
 const HomeProperties = async () => {
-    const properties = await fetchProperties();
+    const data = await fetchProperties();
 
     // to display only 3 random property
-    const recentProperties = properties
+    const recentProperties = data.properties
         .sort(() => Math.random() - Math.random())
         .slice(0, 3);
 
