@@ -7,6 +7,7 @@ import Footer from '@/components/Navigation/Footer';
 import AuthProvider from '../components/Auth/AuthProvider';
 import '@/assets/styles/globals.css';
 import 'react-toastify/dist/ReactToastify.css';
+import 'photoswipe/dist/photoswipe.css'
 
 // for SEO
 export const metadata = {
