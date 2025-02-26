@@ -1,12 +1,6 @@
 import Image from 'next/image';
 import Link from 'next/link';
-import {
-  FaBed,
-  FaBath,
-  FaRulerCombined,
-  FaMoneyBill,
-  FaMapMarker,
-} from 'react-icons/fa';
+import { FaBed, FaBath, FaRulerCombined, FaMoneyBill, FaMapMarker } from 'react-icons/fa';
 
 const PropertyCard = ({ property }) => {
     const getRateDisplay = () => {
@@ -22,7 +16,7 @@ const PropertyCard = ({ property }) => {
     }
 
     return (
-        <div className='rounded-xl shadow-md relative'>
+        <div className='rounded-xl shadow-md relative flex flex-col h-full'>
             <Image
                 src={property.images[0]}
                 alt=''
