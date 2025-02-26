@@ -1,10 +1,13 @@
-import { fetchProperties } from '../../utils/requests';
 import FeaturedPropertyCard from './FeaturedPropertyCard';
+import connectDB from '@/config/database';
+import Property from '@/models/Property';
 
 const FeaturedProperties = async () => {
-    const properties = await fetchProperties({
-        is_featured: true,
-    });
+    await connectDB();
+
+    const properties = await Property.find({
+      is_featured: true,
+    }).lean();
 
     return (
         properties.length > 0 && (

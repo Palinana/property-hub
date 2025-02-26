@@ -4,6 +4,18 @@ import { getSessionUser } from '@/utils/getSessionUser';
 
 // GET /api/properties/:id
 export const GET = async (request, { params }) => {
+    // Handle CORS pre-flight requests 
+    if (request.method === 'OPTIONS') {
+        return new Response(null, {
+            status: 200,
+            headers: {
+                'Access-Control-Allow-Origin': 'https://property-ri4c1rjgp-palinas-projects-9fcc2d1f.vercel.app', 
+                'Access-Control-Allow-Methods': 'GET, POST, PUT, DELETE, OPTIONS',
+                'Access-Control-Allow-Headers': 'Content-Type, Authorization',
+            },
+        });
+    }
+
     try {
         await connectDB();
   
@@ -13,11 +25,11 @@ export const GET = async (request, { params }) => {
         
         // CORS headers for cross-origin requests
         const headers = {
-            'Access-Control-Allow-Origin': '*', 
+            'Access-Control-Allow-Origin': 'https://property-ri4c1rjgp-palinas-projects-9fcc2d1f.vercel.app', 
             'Access-Control-Allow-Methods': 'GET, POST, PUT, DELETE, OPTIONS',
             'Access-Control-Allow-Headers': 'Content-Type, Authorization',
         };
-        
+
         return new Response(JSON.stringify(property), {
             status: 200,
             headers,
