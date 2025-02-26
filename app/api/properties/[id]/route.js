@@ -10,9 +10,17 @@ export const GET = async (request, { params }) => {
         const property = await Property.findById(params.id);
     
         if (!property) return new Response('Property Not Found', { status: 404 });
-    
+        
+        // CORS headers for cross-origin requests
+        const headers = {
+            'Access-Control-Allow-Origin': '*', 
+            'Access-Control-Allow-Methods': 'GET, POST, PUT, DELETE, OPTIONS',
+            'Access-Control-Allow-Headers': 'Content-Type, Authorization',
+        };
+        
         return new Response(JSON.stringify(property), {
             status: 200,
+            headers,
         });
     } catch (error) {
         console.log(error);

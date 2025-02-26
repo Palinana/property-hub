@@ -3,7 +3,7 @@ import FeaturedPropertyCard from './FeaturedPropertyCard';
 
 const FeaturedProperties = async () => {
     const properties = await fetchProperties({
-        showFeatured: true,
+        is_featured: true,
     });
 
     return (
