@@ -1,4 +1,5 @@
 'use server';
+
 const { default: connectDB } = require('@/config/database');
 const { default: User } = require('@/models/User');
 const { getSessionUser } = require('@/utils/getSessionUser');

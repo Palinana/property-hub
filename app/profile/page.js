@@ -7,16 +7,19 @@ import ProfileProperties from '@/components/Property/ProfileProperties';
 import { convertToSerializeableObject } from '@/utils/convertToObject';
 
 const ProfilePage = async () => {
+    // Connect to DB on the server
     await connectDB();
 
+    // Fetch the session user data on the server
     const sessionUser = await getSessionUser();
+    
+    if (!sessionUser || !sessionUser.userId) {
+        throw new Error('User not found or no session');
+    }
 
     const { userId } = sessionUser;
 
-    if (!userId) {
-        throw new Error('User ID is required');
-    }
-
+    // Fetch properties for the user from the database
     const propertiesDocs = await Property.find({ owner: userId }).lean();
     const properties = propertiesDocs.map(convertToSerializeableObject);
 
@@ -46,11 +49,11 @@ const ProfilePage = async () => {
             
                         <div className='md:w-3/4 md:pl-4'>
                             <h2 className='text-xl font-semibold mb-4'>Your Listings</h2>
-                            {properties.length === 0 ? (
-                                <p>You have no property listings</p>
-                            ) : (
-                                <ProfileProperties properties={properties} />
-                            )}
+                                {properties.length === 0 ? (
+                                    <p>You have no property listings</p>
+                                ) : (
+                                    <ProfileProperties properties={properties} />
+                                )}
                         </div>
                     </div>
                 </div>
