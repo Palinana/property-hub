@@ -150,7 +150,7 @@ const Navbar = () => {
                                     </svg>
                                 </button>
                                 {/* <!-- Unread Messages Count --> */}
-                                <UnreadMessageCount session={session} />
+                                <UnreadMessageCount />
                             </Link>
                             {/* <!-- Profile dropdown button --> */}
                             <div className='relative ml-3'>
