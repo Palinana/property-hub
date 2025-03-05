@@ -13,7 +13,6 @@ async function fetchProperties({ showFeatured = false } = {} ) {
 
         const res = await fetch(`${apiDomain}/properties${showFeatured ? '/featured' : ''}`);
 
-        console.log("res - ", res.json())
         if (!res.ok) {
             throw new Error("Failed to fetch data");
         }
