@@ -39,7 +39,9 @@ const MessageCard = ({ message }) => {
             
             <h2 className='text-xl mb-4'>
             <span className='font-bold'>Property Inquiry:</span>{' '}
-                {message.property.name}
+                {/* {message.property.name} */}
+                {message.property ? message.property.name : 'Property no longer available'}
+
             </h2>
             <p className='text-gray-700'>{message.body}</p>
     
