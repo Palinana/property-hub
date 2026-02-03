@@ -7,7 +7,7 @@ const FeaturedProperties = async () => {
 
     const properties = await Property.find({
       is_featured: true,
-    }).lean();
+    }).sort({ createdAt: 1 }).lean();
 
     return (
         properties.length > 0 && (

@@ -14,12 +14,12 @@ export function GlobalProvider({ children }) {
 
     useEffect(() => {
         if (session && session.user) {
-            getUnreadMessageCount().then((res) => {
-                if (res.count) setUnreadCount(res.count);
-            });
+          getUnreadMessageCount().then((res) => {
+            if (res.count) setUnreadCount(res.count);
+          });
         }
-    }, [getUnreadMessageCount, session]);
-
+      }, [session]);
+      
     return (
         <GlobalContext.Provider value={{ unreadCount, setUnreadCount }}>
             { children }
